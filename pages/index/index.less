@@ -1,0 +1,57 @@
+/* 
+轮播图存在默认的高度和宽度
+100% * 150px
+图片也存在默认的高度
+320px * 240px
+
+*/
+.swiper {
+  width: 750rpx;
+  height: 340rpx;
+  .swiper_image {
+    width: 100%;
+  }
+}
+.index_cate {
+  display: flex;
+  padding: 20rpx;
+  .cate_item {
+    flex: 1;
+  }
+  .cate_item_image {
+    width: 100%;
+  }
+}
+
+.index_floor {
+  .floor_item {
+    .floor_item_title {
+      padding: 10rpx 0;
+      image {
+        width: 100%;
+      }
+    }
+    .floor_item_content {
+      navigator {
+        float: left;
+        width: 33.33%;
+        // 后四个超链接
+        &:nth-last-child(-n + 4) {
+          // 原图的宽高 232 * 386
+          // 232 / 386 = 33.33vw / height
+          // 第一张图片的高度 height 33.vw * 386 / 232
+          height: (33.33vw * 386 / 232 / 2);
+          border-left: 10rpx solid #fff;
+        }
+        &:nth-child(2),
+        &:nth-child(3) {
+          border-bottom: 10rpx solid #fff;
+        }
+        image {
+          width: 100%;
+          height: 100%;
+        }
+      }
+    }
+  }
+}

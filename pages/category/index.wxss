@@ -1,0 +1,44 @@
+/* pages/category/index.wxss */
+.cate {
+  height: 100%;
+}
+.cate .cate_contianer {
+  height: calc(100vh - 90rpx);
+  display: flex;
+}
+.cate .cate_contianer .cate_left {
+  flex: 2;
+}
+.cate .cate_contianer .cate_left .menu_item {
+  height: 80rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.cate .cate_contianer .cate_left .menu_item.active {
+  color: red;
+}
+.cate .cate_contianer .cate_right {
+  flex: 5;
+}
+.cate .cate_contianer .cate_right .cate_right_content .good_title {
+  height: 80rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.cate .cate_contianer .cate_right .cate_right_content .good_title .delimiter {
+  color: #ccc;
+  padding: 0 10rpx;
+}
+.cate .cate_contianer .cate_right .cate_right_content .good_list {
+  display: flex;
+  flex-wrap: wrap;
+}
+.cate .cate_contianer .cate_right .cate_right_content .good_list .good_list_item {
+  width: 33.33%;
+  text-align: center;
+}
+.cate .cate_contianer .cate_right .cate_right_content .good_list .good_list_item image {
+  width: 50%;
+}

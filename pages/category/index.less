@@ -1,0 +1,49 @@
+/* pages/category/index.wxss */
+.cate {
+  height: 100%;
+  .cate_contianer {
+    // ~'' 保证less 不编译里面的代码
+    height: ~'calc(100vh - 90rpx)';
+    display: flex;
+    .cate_left {
+      flex: 2;
+      .menu_item {
+        height: 80rpx;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        &.active {
+          color: red;
+        }
+      }
+    }
+    .cate_right {
+      flex: 5;
+      .cate_right_content {
+        .good_title {
+          height: 80rpx;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          .title {
+          }
+          .delimiter {
+            color: #ccc;
+            padding: 0 10rpx;
+          }
+        }
+        .good_list {
+          display: flex;
+          flex-wrap: wrap;
+          .good_list_item {
+            width: 33.33%;
+            text-align: center;
+            image {
+              width: 50%;
+            }
+          }
+        }
+      }
+    }
+  }
+}

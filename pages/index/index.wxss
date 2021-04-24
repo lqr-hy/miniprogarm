@@ -1,0 +1,46 @@
+/* 
+轮播图存在默认的高度和宽度
+100% * 150px
+图片也存在默认的高度
+320px * 240px
+
+*/
+.swiper {
+  width: 750rpx;
+  height: 340rpx;
+}
+.swiper .swiper_image {
+  width: 100%;
+}
+.index_cate {
+  display: flex;
+  padding: 20rpx;
+}
+.index_cate .cate_item {
+  flex: 1;
+}
+.index_cate .cate_item_image {
+  width: 100%;
+}
+.index_floor .floor_item .floor_item_title {
+  padding: 10rpx 0;
+}
+.index_floor .floor_item .floor_item_title image {
+  width: 100%;
+}
+.index_floor .floor_item .floor_item_content navigator {
+  float: left;
+  width: 33.33%;
+}
+.index_floor .floor_item .floor_item_content navigator:nth-last-child(-n + 4) {
+  height: 27.72711207vw;
+  border-left: 10rpx solid #fff;
+}
+.index_floor .floor_item .floor_item_content navigator:nth-child(2),
+.index_floor .floor_item .floor_item_content navigator:nth-child(3) {
+  border-bottom: 10rpx solid #fff;
+}
+.index_floor .floor_item .floor_item_content navigator image {
+  width: 100%;
+  height: 100%;
+}
