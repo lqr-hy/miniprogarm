@@ -1,2 +1,21 @@
-<!--pages/goods_list/index.wxml-->
-<text>pages/goods_list/index.wxml</text>
+<SearchInput></SearchInput>
+<Tab tab="{{tabs}}" bindchangeTabActive="handlechangeTabActive">
+  <block wx:if="{{tabs[0].isActive}}">
+    <view class="first-tab">
+      <view class="good-list-item"
+      wx:for="{{goods}}"
+      wx:key='goods_id'
+      >
+        <view class="good-img">
+          <image mode="widthFix"  src="{{item.goods_small_logo?item.goods_small_logo:'http://image1.suning.cn/uimg/b2c/newcatentries/0000000000-000000000147767325_1_400x400.jpg'}}" />
+        </view>
+        <view class="good-info">
+          <view class="good-name">{{item.goods_name}}</view>
+          <view class="good-price">￥{{item.goods_price}}</view>
+        </view>
+      </view>
+    </view>
+  </block>
+  <block wx:elif="{{tabs[1].isActive}}">1</block>
+  <block wx:elif="{{tabs[2].isActive}}">2</block>
+</Tab>
