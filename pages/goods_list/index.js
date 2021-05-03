@@ -39,7 +39,7 @@ Page({
   //  请求参数的pramas
   queryParam: {
     query:'',
-    cid:'',
+    cid: '',
     pagenum:1,
     pagesize:10
   },
@@ -51,7 +51,8 @@ Page({
    */
   
  async getGoodList(){
-  const res = await  wx.$request({url:'/goods/search',params:'{this.queryParam}'})
+  const res = await  wx.$request({url:'/goods/search',data:{...this.queryParam}})
+  console.log(res)
   // console.log(res) 
   //  每次获取数据的条数
   const total  = res.total
@@ -61,12 +62,13 @@ Page({
   // 拼接数据
   this.setData({goods:[...this.data.goods,...res.goods]})
   // console.log(this.data.goods)
-
   // 拿到数据了 就关闭下拉更新
   wx.stopPullDownRefresh()
   },
   onLoad: function (options) {
+    // console.log(options)
     this.queryParam.cid = options.cid
+    console.log(this.queryParam.cid)
     this.getGoodList()
   },
   
@@ -128,11 +130,14 @@ Page({
    * 页面上拉触底事件的处理函数
    */
   onReachBottom: function () {
-    if(this.queryParam.pagesize > this.totalPages){
+    // console.log(this.queryParam.pagenum)
+    // console.log(this.totalPages)
+    if(this.queryParam.pagenum > this.totalPages){
       wx.showToast({
         title: '没有数据了'
       })
     }else{
+      this.queryParam.pagenum++
       this.getGoodList()
     }
   },

@@ -5,7 +5,32 @@ Page({
    * 页面的初始数据
    */
   data: {
+    address:{}
+  },
 
+  // 获取收获地址
+  handleChooseAddress(){
+    // 首先判断权限
+    // wx.getSetting({
+    //   success:(res)=>{
+    //     // console.log(res)
+    //     // 根据全选状态进行调用获取地址
+    //     const status = res.authSetting['scope.address']
+    //     if(status === true || status === undefined){
+    //       wx.chooseAddress({
+    //         success: (result) => {
+    //           console.log(result)
+    //         },
+    //       })
+    //     }
+    //   }
+    // })  
+    wx.chooseAddress({
+      success: (result) => {
+        console.log(result)
+        wx.setStorageSync('address', result)
+      },
+    })
   },
 
   /**
@@ -26,7 +51,9 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+    const address  =  wx.getStorageSync('address')
+    address.all = address.provinceName + address.cityName + address.countyName + address.detailInfo
+    this.setData({address})
   },
 
   /**

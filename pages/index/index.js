@@ -32,7 +32,7 @@ Page({
   getSwiperData(){
     wx.$request({url:'/home/swiperdata'})
     .then(result=>{
-      this.setData({swiperList:result.data.message})
+      this.setData({swiperList:result})
     })
   },
 
@@ -40,14 +40,14 @@ Page({
   getNavCate(){
     wx.$request({url:'/home/catitems'})
     .then(result=>{
-      this.setData({cateList:result.data.message})
+      this.setData({cateList:result})
     })
   },
   // 商品列表数据
   getFloorList(){
     wx.$request({url:'/home/floordata'})
     .then(result=>{
-      this.setData({floorList:result.data.message})
+      this.setData({floorList:result})
     })
   },
   /**
