@@ -54,6 +54,8 @@ Page({
     if(index === -1){
       // 没有就设置当前数量
       this.goodsObj.num = 1
+      // 商品选中的状态
+      this.goodsObj.checked = true
       // 并追加到缓存中
       cart.push(this.goodsObj)
     }else{

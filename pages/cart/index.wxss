@@ -14,3 +14,117 @@
   flex: 3;
   text-align: right;
 }
+.content .title {
+  color: var(--themeColor);
+  font-size: 30rpx;
+  border-bottom: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  padding: 10rpx;
+}
+.content .content_item {
+  display: flex;
+  padding: 10rpx;
+  border-bottom: 1rpx solid #ccc;
+}
+.content .content_item .item_chk {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.content .content_item .item_chk checkbox-group checkbox {
+  display: block;
+}
+.content .content_item .item_img {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex: 3;
+}
+.content .content_item .item_img image {
+  width: 80%;
+}
+.content .content_item .item_info {
+  flex: 4;
+  display: flex;
+  justify-content: space-around;
+  flex-direction: column;
+}
+.content .content_item .item_info .info_title {
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+}
+.content .content_item .item_info .info_price {
+  display: flex;
+  justify-content: space-between;
+}
+.content .content_item .item_info .info_price .price {
+  color: var(--themeColor);
+}
+.content .content_item .item_info .info_price .edit {
+  display: flex;
+}
+.content .content_item .item_info .info_price .edit .decreased {
+  width: 55rpx;
+  height: 55rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid #ccc;
+}
+.content .content_item .item_info .info_price .edit .num {
+  width: 55rpx;
+  height: 55rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.content .content_item .item_info .info_price .edit .increased {
+  width: 55rpx;
+  height: 55rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid #635f5f;
+}
+.foot_detail {
+  height: 90rpx;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  border-top: 1px solid #ccc;
+  display: flex;
+  width: 100%;
+}
+.foot_detail .all_chk {
+  flex: 2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.foot_detail .foot_price {
+  flex: 4;
+  text-align: right;
+  padding-right: 10rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+.foot_detail .foot_price .price span {
+  color: #f6554a;
+}
+.foot_detail .foot_price .express {
+  font-size: 24rpx;
+}
+.foot_detail .settlement {
+  flex: 2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #f6554a;
+  color: #fff;
+  font-weight: 600;
+  font-size: 30rpx;
+}

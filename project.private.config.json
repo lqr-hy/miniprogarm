@@ -29,6 +29,11 @@
           "pathName": "pages/cart/index",
           "query": "",
           "scene": null
+        },
+        {
+          "name": "获取全选",
+          "pathName": "pages/auth/index",
+          "scene": null
         }
       ]
     }
