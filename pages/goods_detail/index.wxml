@@ -1,6 +1,7 @@
 <view class="detail_swiper">
   <swiper autoplay indicator-dots cicular>
-    <swiper-item wx:for="{{goods_detail.pics}}" wx:key="pics_id" bindtap="handlePicturePreview" data-url="{{item.pics_mid}}">
+    <swiper-item wx:for="{{goods_detail.pics}}" wx:key="pics_id" bindtap="handlePicturePreview"
+      data-url="{{item.pics_mid}}">
       <image mode="widthFix" src="{{item.pics_mid}}"></image>
     </swiper-item>
   </swiper>
@@ -8,8 +9,8 @@
 <view class="goods_price">￥{{goods_detail.goods_price}}</view>
 <view class="goods_name_row">
   <view class="goods_name">{{goods_detail.goods_name}}</view>
-  <view class="goods_collect">
-    <text class="iconfont icon-shoucang"></text>
+  <view class="goods_collect" bindtap="handleCollection">
+    <text class="iconfont {{isCollect ? 'icon-shoucang1' : 'icon-shoucang'}} "></text>
     <view class="collect_text">收藏</view>
   </view>
 </view>

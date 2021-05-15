@@ -1,2 +1,55 @@
-<!--pages/user/index.wxml-->
-<text>pages/user/index.wxml</text>
+<view class="user_info">
+  <view class="user_login" wx:if="{{userInfo.avatarUrl}}">
+    <image class="user_bg" src="{{userInfo.avatarUrl}}"></image>
+    <view class="user_info_header">
+      <image mode="widthFix" src="{{userInfo.avatarUrl}}"></image>
+      <view class="user_title">{{userInfo.nickName}}</view>
+    </view>
+  </view>
+  <view class="user_to_login" wx:else>
+    <navigator url="/pages/login/index">登录</navigator>
+  </view>
+</view>
+<view class="content">
+  <view class="main">
+    <view class="main_header">
+      <navigator url="/pages/collect/index?type=1" class="header_item">
+        <view class="item_num">0</view>
+        <view class="item_des">收藏的店铺</view>
+      </navigator>
+      <navigator url="/pages/collect/index?type=2" class="header_item">
+        <view class="item_num">{{collect.length}}</view>
+        <view class="item_des">收藏的商品</view>
+      </navigator>
+      <navigator url="/pages/collect/index?type=3" class="header_item">
+        <view class="item_num">0</view>
+        <view class="item_des">收藏的店铺</view>
+      </navigator>
+      <navigator url="/pages/collect/index?type=4" class="header_item">
+        <view class="item_num">0</view>
+        <view class="item_des">浏览足迹</view>
+      </navigator>
+    </view>
+    <view class="my_order">
+      <view class="order_title">我的订单</view>
+      <view class="order_content">
+        <navigator class="order_item" url="/pages/order/index?type=1">
+          <view class="item_icon iconfont icon-ding_dan"></view>
+          <view class="item_des">全部订单</view>
+        </navigator>
+        <navigator class="order_item" url="/pages/order/index?type=2">
+          <view class="item_icon iconfont icon-fukuantongzhi"></view>
+          <view class="item_des">待付款</view>
+        </navigator>
+        <navigator class="order_item" url="/pages/order/index?type=3">
+          <view class="item_icon iconfont icon-qian"></view>
+          <view class="item_des">待收款</view>
+        </navigator>
+        <navigator class="order_item" url="/pages/order/index?type=4">
+          <view class="item_icon iconfont icon-receipt-address"></view>
+          <view class="item_des">退货/退款</view>
+        </navigator>
+      </view>
+    </view>
+  </view>
+</view>

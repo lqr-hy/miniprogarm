@@ -31,8 +31,20 @@
           "scene": null
         },
         {
-          "name": "获取全选",
+          "name": "获取权限",
           "pathName": "pages/auth/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "个人中心",
+          "pathName": "pages/user/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "订单中心",
+          "pathName": "pages/order/index",
           "scene": null
         }
       ]

@@ -1,6 +1,7 @@
 import regeneratorRuntime from '../../libs/runtime/runtime'
 import {
-  showToast
+  showToast,
+  requestPayment
 } from '../../libs/asyncWX.js'
 // pages/cart/index.js
 Page({
@@ -14,22 +15,6 @@ Page({
     totailPrice: '',
     totailNum: ''
   },
-
-
-  /**
-   * 生命周期函数--监听页面加载
-   */
-  onLoad: function (options) {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-
-  },
-
   /**
    * 生命周期函数--监听页面显示
    */
@@ -40,13 +25,13 @@ Page({
     }
     // 获取加入购物车的数据
     let cart = wx.getStorageSync('cart') || []
-    cart  = cart.filter(v=>v.checked)
+    cart = cart.filter(v => v.checked)
     // 计算总价格 和总数量
     let totailPrice = 0
     let totailNum = 0
     cart.forEach(v => {
-        totailPrice += v.num * v.goods_price
-        totailNum += v.num
+      totailPrice += v.num * v.goods_price
+      totailNum += v.num
     })
     this.setData({
       cart,
@@ -55,20 +40,81 @@ Page({
       address
     })
   },
-  // 处理购物车数据
-  setCart(cart) {
- 
-  },
-
   // 支付
   async handlePay() {
-    // 首先判断是否有权限
-    const token = wx.getStorageSync('token')
-    // 没有就跳到权限页面
-    if(!token){
-      wx.navigateTo({
-        url: '/pages/auth/index',
+    try {
+      // 首先判断是否有权限
+      const token = wx.getStorageSync('token')
+      // 没有就跳到权限页面
+      if (!token) {
+        wx.navigateTo({
+          url: '/pages/auth/index',
+        })
+      }
+      // 获取订单参数
+      const order_price = this.data.totailPrice
+      // 获取收获地址
+      const consignee_addr = this.data.address.all
+      const cart = this.data.cart
+      // 获取订单数组
+      let good = []
+      cart.forEach(v => good.push({
+        goods_id: v.goods_id,
+        goods_number: v.num,
+        goods_price: v.goods_price
+      }))
+      let payParams = {
+        order_price,
+        consignee_addr,
+        good
+      }
+      // 1、 创建订单  获取订单编号
+      const {
+        order_number
+      } = await wx.$request({
+        url: '/my/orders/create',
+        method: "POST",
+        data: payParams
       })
+      // console.log(order_number)
+      // 发起预支付接口
+      const {
+        pay
+      } = await wx.$request({
+        url: '/my/orders/req_unifiedorder',
+        method: 'POST',
+        data: {
+          order_number
+        }
+      })
+      // // 发起微信支付
+      await requestPayment(pay)
+      // 查询订单
+      const res = await wx.$request({
+        url: '/my/orders/chkOrder',
+        method: 'POST',
+        data: {
+          order_number
+        }
+      })
+      // console.log(res)
+      await showToast({
+        title: '支付成功'
+      })
+      // 最后删除购物车中以支付的数据
+      let newCart = wx.getStorageSync('cart')
+      newCart = newCart.filter(v => !v.checked)
+      this.setData({
+        cart: newCart
+      })
+      wx.navigateTo({
+        url: '/pages/order/index',
+      })
+    } catch (error) {
+      await showToast({
+        title: '支付失败'
+      })
+      console.log(error)
     }
   },
   /**

@@ -26,6 +26,7 @@ Page({
    this.getSwiperData()
    this.getNavCate()
    this.getFloorList()
+   wx.setStorageSync('token', 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOjIzLCJpYXQiOjE1NjQ3MzAwNzksImV4cCI6MTAwMTU2NDczMDA3OH0.YPt-XeLnjV-_1ITaXGY2FhxmCe4NvXuRnRB8OMCfnPo')
   },
 
   // 获取轮播图数据

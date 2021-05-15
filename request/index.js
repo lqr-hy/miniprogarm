@@ -2,6 +2,14 @@
 let ajaxTimec = 0
 
 export const request = (params) => {
+  // 真实项目中需要携带token  
+  // 定义header 
+  let header = {...params.header}
+  // 判断哪些那些请求路径 需要携带token
+  if(params.url.includes('/my/')){
+    header['Authorization'] = wx.getStorageSync('token')
+  }
+
   ajaxTimec++
   wx.showLoading({
     title: '加载中'
@@ -13,6 +21,7 @@ export const request = (params) => {
 
     wx.request({
       ...params,
+      header:header,
       url:baseUrl + params.url,
       success: (result) => {
         result = result.data.message

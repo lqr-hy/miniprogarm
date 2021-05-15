@@ -1,1 +1,81 @@
-/* pages/user/index.wxss */
+Page {
+  background-color: #edece8;
+}
+.user_info {
+  height: 45vh;
+  background-color: var(--themeColor);
+  position: relative;
+}
+.user_info .user_login .user_bg {
+  height: 45vh;
+  filter: blur(10rpx);
+}
+.user_info .user_login .user_info_header {
+  position: absolute;
+  top: 20%;
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
+}
+.user_info .user_login .user_info_header image {
+  width: 150rpx;
+  height: 150rpx;
+  border-radius: 50%;
+}
+.user_info .user_login .user_info_header .user_title {
+  margin-top: 20rpx;
+  color: #fff;
+}
+.user_info .user_to_login {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.user_info .user_to_login button {
+  width: 150rpx;
+  height: 150rpx;
+}
+.content {
+  position: relative;
+}
+.content .main {
+  position: absolute;
+  top: -40rpx;
+  left: 50%;
+  width: 90%;
+  color: #888;
+  transform: translateX(-50%);
+}
+.content .main .main_header {
+  display: flex;
+  background-color: #fff;
+}
+.content .main .main_header .header_item {
+  flex: 1;
+  text-align: center;
+  padding: 15rpx 0;
+}
+.content .main .main_header .header_item .item_num {
+  color: var(--themeColor);
+}
+.content .main .my_order {
+  margin-top: 30rpx;
+  background-color: #fff;
+}
+.content .main .my_order .order_title {
+  padding: 15rpx 10rpx;
+  border-bottom: 1px solid #ccc;
+}
+.content .main .my_order .order_content {
+  display: flex;
+}
+.content .main .my_order .order_content .order_item {
+  flex: 1;
+  text-align: center;
+  padding: 15rpx 0;
+}
+.content .main .my_order .order_content .order_item .item_icon {
+  font-size: 40rpx;
+  color: var(--themeColor);
+}

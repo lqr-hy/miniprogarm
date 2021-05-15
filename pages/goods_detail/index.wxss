@@ -31,6 +31,9 @@ Page {
   align-items: center;
   border-left: 1px solid #000;
 }
+.goods_name_row .goods_collect .icon-shoucang1 {
+  color: var(--themeColor);
+}
 .btm_tool {
   border-top: 1px solid #ccc;
   display: flex;

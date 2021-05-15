@@ -7,7 +7,18 @@ Page({
   data: {
 
   },
-
+  // 登录
+  handlerUserLogin(e) {
+    // console.log(e)
+    const {
+      userInfo
+    } = e.detail
+    // console.log(rawData)
+    wx.setStorageSync('userInfo', userInfo)
+    wx.switchTab({
+      url: '/pages/user/index',
+    })
+  },
   /**
    * 生命周期函数--监听页面加载
    */
