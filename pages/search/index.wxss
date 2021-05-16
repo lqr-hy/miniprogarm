@@ -1,1 +1,28 @@
-/* pages/search/index.wxss */
+page{
+  background-color: #e8d8e8;
+  padding: 30rpx;
+}
+.search{
+  display: flex;
+  height: 60rpx;
+}
+.search input{
+  flex: 1;
+  height: 100%;
+  background-color: #fff;
+  margin-right: 10rpx;
+  padding-left: 30rpx;
+}
+.search_list{
+  margin-top: 30rpx;
+}
+.search_item{
+  height: 60rpx;
+  background-color: #fff;
+  margin-bottom: 2rpx;
+  line-height: 60rpx;
+  padding: 0 10rpx;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  word-spacing: nowarp;
+}

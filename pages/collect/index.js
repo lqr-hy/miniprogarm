@@ -5,6 +5,7 @@ Page({
    * 页面的初始数据
    */
   data: {
+    collect:[],
     tabs: [{
       id: 0,
       name: '收藏商铺',
@@ -72,6 +73,12 @@ Page({
        type
      } = pages[pages.length - 1].options
      this.changeTab(type - 1)
+
+     const collect = wx.getStorageSync('collect')
+    //  console.log(collect)
+    this.setData({
+      collect
+    })
   },
 
   /**

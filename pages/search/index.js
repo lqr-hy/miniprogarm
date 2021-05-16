@@ -1,11 +1,13 @@
-// pages/search/index.js
+import regeneratorRuntime from "../../libs/runtime/runtime.js"
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-
+    goods: [],
+    isFouce: true,
+    inputValue: ""
   },
 
   /**
@@ -28,7 +30,50 @@ Page({
   onShow: function () {
 
   },
-
+  Timer: null,
+  handleInput(e) {
+    const {
+      value
+    } = e.detail
+    //  当为空格是不发送请求 进行校验 输入框没有值
+    if (!value.trim()) {
+      this.setData({
+        goods: [],
+        isFouce: true
+      })
+      return
+    }
+    this.setData({
+      isFouce: false
+    })
+    clearTimeout(this.Timer)
+    this.Timer = setTimeout(() => {
+      console.log('value',value)
+      this.getGoods(value)
+    }, 1000)
+  },
+  // 点击取消情况数据
+  handleInputValue() {
+    this.setData({
+      inputValue: "",
+      goods: [],
+      isFouce: true
+    })
+  },
+  async getGoods(value) {
+    const 
+      message
+     = await wx.$request({
+      url: '/goods/qsearch',
+      data: {
+        query: value
+      }
+    })
+    // console.log(message)
+    this.setData({
+      goods: message
+    })
+  },
   /**
    * 生命周期函数--监听页面隐藏
    */

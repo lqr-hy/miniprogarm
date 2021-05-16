@@ -1,1 +1,58 @@
-/* pages/feedback/index.wxss */
+page{
+  background-color: #eeeeee;
+}
+.fb{
+  height: 100%;
+  color:#666;
+  padding: 30rpx;
+}
+.text_list{
+  display: flex;
+  flex-wrap: wrap;
+}
+.text_list text{
+  width: 25%;
+  text-align: center;
+  padding: 10rpx;
+  background-color: #fff;
+  margin: 20rpx 10px;
+}
+.fb_content{
+  background-color: #fff;
+  margin-top: 20rpx;
+}
+.fb_content textarea{
+  padding: 10rpx;
+}
+.fb_input{
+  display: flex;
+  justify-content: flex-start;
+  padding: 10rpx;
+}
+.fb_input button{
+  width: 90rpx !important;
+  height: 90rpx !important;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #eee;
+  color:#ccc;
+  margin:0 !important;
+  padding:0 !important
+}
+.fb_btn_wrap{
+  display: flex;
+  justify-content: flex-end;
+  margin: 20rpx 0;
+}
+.fb_btn_wrap button{
+  background-color: #fa5358 !important;
+  color:#fff !important;
+  margin:0 !important;
+  padding:0 !important;
+  width: 180rpx !important;
+  height: 90rpx !important;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

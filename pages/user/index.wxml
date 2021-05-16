@@ -51,5 +51,8 @@
         </navigator>
       </view>
     </view>
+    <view class="my_order">
+      <navigator url="/pages/feedback/index">意见反馈</navigator>
+    </view>
   </view>
 </view>

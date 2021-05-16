@@ -1,2 +1,33 @@
-<!--pages/feedback/index.wxml-->
-<text>pages/feedback/index.wxml</text>
+<Tab tab="{{tabs}}" bindchangeTabActive="handlechangeTabActive">
+  <view class="fb">
+    <view class="text_list">
+      <text>意见反馈</text>
+      <text>好好学习</text>
+      <text>意见反馈</text>
+      <text>意见反馈</text>
+    </view>
+    <view class="fb_content">
+      <textarea name="" id="" cols="30" rows="10" 
+      value="{{textVal}}"
+      bindinput="handletextval"
+      ></textarea>
+      <view class="fb_input">
+         <button bindtap="setChooseImg">+</button>
+         <UpImg 
+          wx:for="{{chooseImg}}"
+          wx:key="*this"
+          src="{{item}}"
+          index="{{index}}"
+          bindclearCurrentImg="clearCurrentImg"
+          ></UpImg>
+      </view>
+    </view>
+    <view class="fb_btn_wrap">
+      <button type="warn"
+      bindtap="handlesubmit"
+      > 
+        <icon type="success_no_circle"  color="white" size="23"></icon>
+        提交</button>
+    </view>
+  </view>
+</Tab>

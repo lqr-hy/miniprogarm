@@ -67,8 +67,10 @@ Page({
   },
   onLoad: function (options) {
     // console.log(options)
-    this.queryParam.cid = options.cid
-    console.log(this.queryParam.cid)
+    this.queryParam.cid = options.cid || ""
+    this.queryParam.query = options.query || ""
+    // console.log(options.query)
+    // console.log(this.queryParam.cid)
     this.getGoodList()
   },
   

@@ -1,2 +1,15 @@
 <Tab tab="{{tabs}}" bindchangeTabActive="handlechangeTabActive">
+  <navigator class="good-list-item"
+      wx:for="{{collect}}"
+      wx:key='goods_id'
+      url='/pages/goods_detail/index?goods_id={{item.goods_id}}'
+      >
+        <view class="good-img">
+          <image mode="widthFix"  src="{{item.goods_small_logo?item.goods_small_logo:'http://image1.suning.cn/uimg/b2c/newcatentries/0000000000-000000000147767325_1_400x400.jpg'}}" />
+        </view>
+        <view class="good-info">
+          <view class="good-name">{{item.goods_name}}</view>
+          <view class="good-price">￥{{item.goods_price}}</view>
+        </view>
+      </navigator>
 </Tab>

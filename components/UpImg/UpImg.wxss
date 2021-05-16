@@ -1,0 +1,18 @@
+.up_img{
+  width: 90rpx;
+  height: 90rpx;
+  margin-left: 20rpx;
+  position: relative;
+}
+.up_img .img{
+  width: 90rpx;
+  height: 90rpx;
+  border-radius: 15rpx;
+  background-color: #ccc;
+}
+.up_img .img_icon{
+  position: absolute;
+  top: -15rpx;
+  right: -15rpx;
+  z-index: 22;
+}
